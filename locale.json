@@ -1,0 +1,12 @@
+{
+  "locale": {
+      "login": {
+        "title": "Login Page",
+        "user": "User Name"
+      },
+      "reset": {
+        "title": "Reset Page-ja",
+        "user": "User Name2-ja"
+      }
+    }
+}
