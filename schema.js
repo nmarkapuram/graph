@@ -29,16 +29,16 @@ const customerType = new GraphQLObjectType({
 const localePageType = new GraphQLObjectType({
     name:'localePage',
     fields: () => ({
-        login: {type:localeVarType},
-        reset: {type:localeVarType}
+        locale: {type:new GraphQLList(localeVarType)},
     })
 });
 
 const localeVarType = new GraphQLObjectType({
     name:'localeVar',
     fields: () => ({
-        title: {type:GraphQLString},
-        user: {type:GraphQLString},
+        id: {type:GraphQLString},
+        value: {type:GraphQLString},
+        pageId: {type:GraphQLString}
     })
 });
 
@@ -77,6 +77,24 @@ const RootQuery = new GraphQLObjectType({
                 }
                 else{
                     return axios.get('http://localhost:4100/locale')
+                        .then(res => res.data);
+                }
+            }
+        },
+        localeFilter:{
+            type: new GraphQLList(localeVarType),
+            args:{
+                lang: {type:GraphQLString},
+                page: {type:GraphQLString}
+            },
+            resolve(parentValue,args){
+                if(args.lang=="en"){
+                //return customers;
+                    return axios.get('http://localhost:3000/pages/'+args.page+'/locale/')
+                        .then(res => res.data);
+                }
+                else{
+                    return axios.get('http://localhost:4100/pages/'+args.page+'/locale/')
                         .then(res => res.data);
                 }
             }

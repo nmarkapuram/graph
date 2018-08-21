@@ -1,12 +1,25 @@
 {
-  "locale": {
-    "login": {
-      "title": "Login Page1",
-      "user": "User Name1"
+  "pageNames": [{ "id": "login" }, { "id": "reset" }],
+  "locale": [
+    {
+      "id": "title",
+      "value": "Page Name-js",
+      "pageId": "login"
     },
-    "reset": {
-      "title": "Reset Page2",
-      "user": "User Name2"
+    {
+      "id": "user",
+      "value": "User Name-js",
+      "pageId": "login"
+    },
+    {
+      "id": "title",
+      "value": "Page Name2-ja",
+      "pageId": "reset"
+    },
+    {
+      "id": "user",
+      "value": "User Name2-ja",
+      "pageId": "reset"
     }
-  }
+  ]
 }
